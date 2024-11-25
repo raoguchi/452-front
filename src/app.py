@@ -3,9 +3,18 @@ import lightgbm as lgb
 import pandas as pd
 import json
 import numpy as np
+import gzip
+import shutil
 
 # Initialize Flask app
 app = Flask(__name__)
+
+compressed = 'data/lgb_model.txt.gz'
+decompressed = 'data/lgb_model.txt'
+
+with gzip.open(compressed, 'rb') as f_in:
+    with open(decompressed, 'wb') as f_out:
+        shutil.copyfileobj(f_in, f_out)
 
 # Load LightGBM model
 model = lgb.Booster(model_file='data/lgb_model.txt')
