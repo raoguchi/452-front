@@ -81,7 +81,7 @@ function createDateDropdown(startYear, startMonth, endYear, endMonth) {
 
 // Main logic
 map.on('load', async () => {
-  const geojsonURL = '../data/la_crime_data.geojson.gz'; // Update with the correct file path
+  const geojsonURL = './data/la_crime_data.geojson.gz'; // Update with the correct file path
   const geojsonData = await loadCompressedGeoJSON(geojsonURL);
 
   // Add a source with initial data (all data or an empty collection)
